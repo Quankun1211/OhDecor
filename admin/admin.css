@@ -1,0 +1,113 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --main_color: #344943;
+  --text_color: #fdcc7f;
+  --header_height: 104px;
+  --bg_color: #fff7ec;
+}
+html, body {
+  font-family: Nunito, sans-serif !important;
+}
+
+header {
+  display: flex;
+  height: 104px;
+  width: 100%;
+  background: var(--main_color);
+  align-items: center;
+  padding-left: 40px;
+  position: fixed;
+}
+header h1:first-child {
+  margin-right: 20px;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.container {
+  padding: 150px 20px 20px 20px;
+  width: 100%;
+  display: flex;
+}
+.left-side {
+  width: 30%;
+  padding: 10px;
+  height: 100%;
+}
+.right-side {
+  flex: 1;
+  padding: 10px;
+  height: 100%;
+}
+.col {
+  background: var(--bg_color);
+  padding: 10px;
+}
+.col>a {
+  color: #000;
+  font-size: 32px;
+  font-weight: 600;
+}
+.list-admin{
+  margin-top: 15px;
+  list-style: none;
+}
+.list-admin li {
+  width: 100%;
+  margin-bottom: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.list-admin li:hover a {
+  color: red;
+}
+.list-admin li a {
+  color: #000;
+}
+.active {
+  color: red !important;
+}
+
+table, td, th {
+  border: 1px solid;
+}
+td, th {
+  padding: 10px;
+}
+th a {
+  color: #000;
+  padding: 0 5px;
+}
+th a:first-child {
+  border-right: 1px solid #000;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.wrap-input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+.wrap-input span {
+  margin-bottom: 5px;
+  font-weight: 600;
+  margin-left: 10px;
+}
+.wrap-input input, select {
+  padding: 10px;
+}
+.btn {
+  margin-top: 20px;
+  margin-left: auto;
+  width: 80px;
+  height: 40px;
+}

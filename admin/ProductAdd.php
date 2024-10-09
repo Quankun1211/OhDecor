@@ -1,3 +1,11 @@
+<?php
+  include '../class/productClass.php.php';
+?>
+<?php
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

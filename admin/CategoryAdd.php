@@ -28,7 +28,7 @@
         <a href="" class="">Danh mục sản phẩm</a>
         <ul class="list-admin">
           <li><a href="CategoryAdd.php" class="active">Thêm danh mục</a></li>
-          <li><a href="BrandAdd.html">Thêm nhãn sản phẩm</a></li>
+          <li><a href="BrandAdd.php">Thêm nhãn sản phẩm</a></li>
           <li><a href="ProductAdd.html">Thêm sản phẩm</a></li>
         </ul>
       </div>

@@ -1,24 +1,26 @@
 <?php
-  include '../class/productClass.php.php';
+  include '../class/productClass.php';
 ?>
 <?php
+  $product = new Product();
+  if($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $category_id = $_POST['category_id'];
+    $brand_id = $_POST['brand_id'];
+    $product_name = $_POST['product_name'];
+    $product_code = $_POST['product_code'];
+    $product_price = $_POST['product_price'];
+    $product_size = $_POST['product_size'];
+    $product_type = $_POST['product_type'];
+    $product_material = $_POST['product_material'];
+    $product_color = $_POST['product_color'];
+    $product_quantity = $_POST['product_quantity'];
 
+    $insert_product = $product->insert_product($category_id, $brand_id, $product_name, $product_code, $product_price, $product_size, $product_type, $product_material, $product_color, $product_quantity);
+  }
 ?>
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./admin.css">
-  <title>Document</title>
-</head>
-<body>
-  <header>
-    <h1><a href="">AdminPage</a></h1>
-    <h1><a href="">MainPage</a></h1>
-  </header>
+<?php
+  include 'headerAdmin.php';
+?>
   <div class="container">
     <div class="left-side">
       <div class="col">
@@ -26,22 +28,32 @@
         <ul class="list-admin">
           <li><a href="CategoryAdd.php">Thêm danh mục</a></li>
           <li><a href="BrandAdd.php" >Thêm nhãn sản phẩm</a></li>
-          <li><a href="ProductAdd.html" class="active">Thêm sản phẩm</a></li>
+          <li><a href="ProductAdd.php" class="active">Thêm sản phẩm</a></li>
         </ul>
       </div>
     </div>
     <div class="right-side">
       <div class="col">
-        <form action="" method="">
+        <form action="" method="post">
           <div class="wrap-input">
             <span>Tên danh mục <span style="color: red;">*</span></span>
-            <select name="category_name" id="">
+            <select name="category_id" id="category_id">
               <option value="">--Chọn danh mục--</option>
+              <?php 
+                $show_category = $product->show_category();
+                if($show_category) {
+                  while($res = $show_category->fetch_assoc()) {
+                    ?>
+                    <option value="<?php echo $res['category_id'] ?>"><?php echo $res['category_name']?></option>
+                  <?php
+                  }
+                }
+                ?>
             </select>
           </div>
           <div class="wrap-input">
             <span>Tên nhãn sản phẩm <span style="color: red;">*</span></span>
-            <select name="brand_name" id="">
+            <select name="brand_id" id="brand_id">
               <option value="">--Chọn nhãn sản phẩm--</option>
             </select>
           </div>
@@ -82,5 +94,20 @@
       </div>
     </div>
   </div>
+
+  <script>
+    $(document).ready(function() {
+      $("#category_id").change(function() {
+        var x = $(this).val()
+        $.get("ProductAdd_ajax.php", {category_id:x}, function(data) {
+          $("#brand_id").html(data)
+        })
+      })
+      $("#brand_id").change(function() {
+        alert($(this).val())
+      })
+    })
+  </script>
+
 </body>
 </html>

@@ -9,19 +9,9 @@
   }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./admin.css">
-  <title>Document</title>
-</head>
-<body>
-  <header>
-    <h1><a href="">AdminPage</a></h1>
-    <h1><a href="">MainPage</a></h1>
-  </header>
+<?php
+  include 'headerAdmin.php';
+?>
   <div class="container">
     <div class="left-side">
       <div class="col">
@@ -29,7 +19,7 @@
         <ul class="list-admin">
           <li><a href="CategoryAdd.php" class="active">Thêm danh mục</a></li>
           <li><a href="BrandAdd.php">Thêm nhãn sản phẩm</a></li>
-          <li><a href="ProductAdd.html">Thêm sản phẩm</a></li>
+          <li><a href="ProductAdd.php">Thêm sản phẩm</a></li>
         </ul>
       </div>
     </div>

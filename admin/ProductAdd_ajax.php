@@ -10,7 +10,7 @@
   if($show_brand_ajax) {
     while($res = $show_brand_ajax->fetch_assoc()) {
       ?>
-      <option value="<?php echo $res['brand_id'] ?>"><?php echo $res['brand_name']."_".$res['brand_id']?></option>
+      <option value="<?php echo $res['brand_id'] ?>"><?php echo $res['brand_name']?></option>
     <?php
     }
   }

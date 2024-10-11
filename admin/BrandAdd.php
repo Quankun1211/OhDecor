@@ -7,6 +7,7 @@
     $brand_name = $_POST['brand_name'];
     $category_id = $_POST['category_id'];
     $insert_brand = $brand->insert_brand($brand_name, $category_id);
+    header("Location:admin.php");
   }
 
 ?>
@@ -16,7 +17,7 @@
   <div class="container">
     <div class="left-side">
       <div class="col">
-        <a href="" class="">Danh mục sản phẩm</a>
+        <a href="admin.php" class="">Danh mục sản phẩm</a>
         <ul class="list-admin">
           <li><a href="CategoryAdd.php">Thêm danh mục</a></li>
           <li><a href="BrandAdd.php" class="active">Thêm nhãn sản phẩm</a></li>

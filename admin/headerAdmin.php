@@ -10,5 +10,5 @@
 <body>
   <header>
     <h1><a href="">AdminPage</a></h1>
-    <h1><a href="">MainPage</a></h1>
+    <h1><a href="../html/index.html">MainPage</a></h1>
   </header>

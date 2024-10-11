@@ -6,6 +6,7 @@
   if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $category_name = $_POST['category_name'];
     $insert_category = $category->insert_category($category_name);
+    header("Location:admin.php");
   }
 ?>
 
@@ -15,7 +16,7 @@
   <div class="container">
     <div class="left-side">
       <div class="col">
-        <a href="" class="">Danh mục sản phẩm</a>
+        <a href="admin.php" class="">Danh mục sản phẩm</a>
         <ul class="list-admin">
           <li><a href="CategoryAdd.php" class="active">Thêm danh mục</a></li>
           <li><a href="BrandAdd.php">Thêm nhãn sản phẩm</a></li>

@@ -15,5 +15,15 @@
       $res = $this->db->select($query);
       return $res;
     }
+    public function show_brand() {
+      $query = "SELECT * FROM tbl_brand ORDER BY brand_id";
+      $res = $this->db->select($query);
+      return $res;
+    }
+    public function show_category_id($category_id) {
+      $query = "SELECT * FROM tbl_category WHERE category_id = '$category_id'";
+      $res = $this->db->select($query);
+      return $res;
+    }
   }
 ?>

@@ -29,7 +29,16 @@ a {
   text-decoration: none;
   color: #fff;
 }
-
+.list-select {
+  display: flex !important;
+  flex-direction: column;
+}
+.list-select a {
+  font-size: 25px;
+  margin-bottom: 10px;
+  color: #000;
+  font-weight: 600;
+}
 .container {
   padding: 150px 20px 20px 20px;
   width: 100%;

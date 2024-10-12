@@ -10,5 +10,10 @@
       $res = $this->db->insert($query);
       return $res;
     }
+    public function show_category() {
+      $query = "SELECT category_name FROM tbl_category order by category_id";
+      $res = $this->db->insert($query);
+      return $res;
+    }
   }
 ?>

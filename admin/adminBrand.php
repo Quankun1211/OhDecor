@@ -27,36 +27,38 @@
       <div class="col">
         <table>
           <tr>
-            <td>STT</td>
-            <td>Tên danh mục</td>
-            <td>Tên nhãn sản phẩm</td>
+            <th>STT</th>
+            <th>Danh mục</th>
+            <th>Nhãn sản phẩm</th>
+            <th>Lựa chọn</th>
           </tr>
-          <?php
+          <?php 
             $show_brand = $brand->show_brand();
             if($show_brand) {
-              while($res = $show_brand->fetch_assoc()) {
+              $count = 1;
+              while($res = $show_brand->fetch_array()) {
                 $category_id = $res['category_id'];
           ?>
           <tr>
-            <td></td>
-            <td>
-              <?php
-                $show_cat = $brand->show_category_id($category_id);
-                $res_cat = $show_cat->fetch_assoc();
-                echo $res_cat['category_name'];
-                // echo $category_id;
-              ?>
-            </td>
+            <td><?php echo $count++; ?></td>
             <td>
               <?php 
-                echo $res['brand_name'];
+                $show_category = $brand->show_category_id($category_id);
+                $res_category = $show_category->fetch_assoc();
+                echo $res_category['category_name'];
               ?>
+            </td>
+            <td><?php echo $res['brand_name']; ?></td>
+            <td>
+              <a href="">Sửa</a>
+              <a href="">Xóa</a>
             </td>
           </tr>
           <?php
               }
             }
           ?>
+          
         </table>
       </div>
     </div>

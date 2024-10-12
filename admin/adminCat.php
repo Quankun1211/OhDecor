@@ -36,12 +36,13 @@
           if($show_category) {
             $count = 1;
             while($res = $show_category->fetch_assoc()) {
+              $category_id = $res['category_id'];
           ?>
           <tr>
             <th><?php echo $count++ ?></th>
             <th><?php echo $res['category_name']; ?></th>
             <th>
-              <a href="">Sửa</a>
+              <a href="CategoryUpdate.php?category_id=<?php echo $category_id ?>">Sửa</a>
               <a href="">Xóa</a>
             </th>
           </tr>

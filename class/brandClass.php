@@ -16,7 +16,7 @@
       return $res;
     }
     public function show_brand() {
-      $query = "SELECT * FROM tbl_brand ORDER BY brand_id";
+      $query = "SELECT * FROM tbl_brand";
       $res = $this->db->select($query);
       return $res;
     }

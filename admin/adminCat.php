@@ -43,7 +43,7 @@
             <th><?php echo $res['category_name']; ?></th>
             <th>
               <a href="CategoryUpdate.php?category_id=<?php echo $category_id ?>">Sửa</a>
-              <a href="">Xóa</a>
+              <a href="CategoryDelete.php?category_id=<?php echo $category_id ?>">Xóa</a>
             </th>
           </tr>
           <?php
@@ -53,6 +53,7 @@
         </table>
       </div>
     </div>
+    <div class="drop-down">hok</div>
   </div>
   
 </body>

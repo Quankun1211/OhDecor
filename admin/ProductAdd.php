@@ -16,7 +16,7 @@
     $product_quantity = $_POST['product_quantity'];
 
     $insert_product = $product->insert_product($category_id, $brand_id, $product_name, $product_code, $product_price, $product_size, $product_type, $product_material, $product_color, $product_quantity);
-    header("Location:admin.php");
+    header("Location:adminProd.php");
   }
 ?>
 <?php

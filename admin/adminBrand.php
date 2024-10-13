@@ -49,10 +49,10 @@
               ?>
             </td>
             <td><?php echo $res['brand_name']; ?></td>
-            <td>
-              <a href="">Sửa</a>
-              <a href="">Xóa</a>
-            </td>
+            <th>
+              <a href="BrandUpdate.php?brand_id=<?php echo $res['brand_id'] ?>">Sửa</a>
+              <a href="BrandDelete.php?brand_id=<?php echo $res['brand_id'] ?>">Xóa</a>
+            </th>
           </tr>
           <?php
               }

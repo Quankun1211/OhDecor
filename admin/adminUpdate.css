@@ -21,6 +21,7 @@ header {
   align-items: center;
   padding-left: 40px;
   position: fixed;
+  z-index: 10;
 }
 header h1:first-child {
   margin-right: 20px;
@@ -80,7 +81,7 @@ a {
   color: #000;
 }
 .active {
-  color: green !important;
+  color: red !important;
 }
 
 table, td, th {
@@ -89,7 +90,8 @@ table, td, th {
 td, th {
   padding: 10px;
 }
-th a {
+
+th a, th .wrap-delete p {
   color: #000;
   padding: 0 5px;
 }
@@ -100,7 +102,9 @@ table {
   width: 100%;
   border-collapse: collapse;
 }
-
+.wrap-delete{
+  display: flex;
+}
 .wrap-input {
   display: flex;
   flex-direction: column;
@@ -120,12 +124,72 @@ table {
   width: 80px;
   height: 40px;
 }
-
-/* .container {
+.container {
   position: relative;
 }
 .drop-down {
   position: absolute;
-  background: #000;
-  color: red;
-} */
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+  display: none;
+  transition: .2s linear ;
+}
+.drop-down.active {
+  display: flex !important;
+}
+.drop-down-container{
+  background: var(--bg_color);
+  width: 40%;
+  height: 30%;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.drop-down-container h1 {
+  font-size: 30px;
+}
+.drop-down-btn-cancel {
+  width: 120px;
+  height: 40px;
+  border-radius:10px; 
+  border-color:var(--text_color);
+  background: rgb(64, 64, 250);
+  color: #fff;
+  font-weight: 500;
+}
+.drop-down-container-btn {
+  margin-top: 20px;
+  display: flex;
+}
+.drop-down-btn-delete {
+  width: 120px;
+  height: 40px;
+  border-radius:10px; 
+  border-color:var(--text_color);
+  background: red;
+  color: #fff;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+}
+.drop-down-btn-delete a {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  line-height: 40px;
+}
+.delete-btn{
+  cursor: pointer;
+}

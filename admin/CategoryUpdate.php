@@ -27,7 +27,7 @@
           <a href="adminProd.php" class="">Danh sách sản phẩm</a>
         </div>
         <ul class="list-admin">
-          <li><a href="CategoryAdd.php" class="active">Thêm danh mục</a></li>
+          <li><a href="CategoryAdd.php">Thêm danh mục</a></li>
           <li><a href="BrandAdd.php">Thêm nhãn sản phẩm</a></li>
           <li><a href="ProductAdd.php">Thêm sản phẩm</a></li>
         </ul>

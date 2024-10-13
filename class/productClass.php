@@ -62,5 +62,10 @@
       $res = $this->db->update($query);
       return $res;
     }
+    public function delete_product($product_id) {
+      $query = "DELETE FROM tbl_product WHERE product_id = '$product_id'";
+      $res = $this->db->delete($query);
+      return $res;
+    }
   }
 ?>

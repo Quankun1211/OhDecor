@@ -3,6 +3,7 @@
 ?>
 <?php
   $product = new Product();
+  $product_id_public;
 ?>
 
 <?php
@@ -38,6 +39,7 @@
               while($res = $show_product->fetch_array()) {
                 $category_id = $res['category_id'];
                 $brand_id = $res['brand_id'];
+                $product_id_public = $res['product_id'];
           ?>
           <tr>
             <td>
@@ -55,9 +57,11 @@
               ?>
             </td>
             <td><?php echo $res['product_name']; ?></td>
-            <th>
-              <a href="ProductUpdate.php?product_id=<?php echo $res['product_id']; ?>">Sửa</a>
-              <a href="">Xóa</a>
+            <th width="20%">
+              <div class="wrap-delete">
+                <a href="ProductUpdate.php?product_id=<?php echo $res['product_id']; ?>">Sửa</a>
+                <p class="delete-btn">Xóa</p>
+              </div>
             </th>
           </tr>
           <?php
@@ -67,7 +71,30 @@
         </table>
       </div>
     </div>
+    <div class="drop-down">
+      <div class="drop-down-container">
+        <h1>Xác nhận xóa vĩnh viễn ?</h1>
+        <div class="drop-down-container-btn">
+          <button class="drop-down-btn-cancel">Hủy</button>
+          <div class="drop-down-btn-delete">
+            <a href="ProductDelete.php?product_id=<?php echo $product_id_public ?>">Xác nhận</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  
+
+
+  <script>
+    const deleteBtn = document.querySelector(".delete-btn")
+    const dropDown = document.querySelector(".drop-down")
+    const cancel = document.querySelector(".drop-down-btn-cancel")
+    deleteBtn.onclick = () => {
+      dropDown.classList.add("active")
+    }
+    cancel.onclick = () => {
+      dropDown.classList.remove("active")
+    }
+  </script>
 </body>
 </html>

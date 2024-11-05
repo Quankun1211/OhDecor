@@ -7,5 +7,5 @@
   $delete_category = $category->delete_category($category_id);
   $delete_brand = $category->delete_brand($category_id);
   $delete_prod = $category->delete_prod($category_id);
-  header("Location:adminCat.php")
+  header("Location:index.php")
 ?>

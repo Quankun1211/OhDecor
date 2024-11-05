@@ -586,3 +586,70 @@ scrollbar-width: none;
 .footer-list .col p{
   margin-bottom: 5px;
 }
+
+.login {
+  padding-top: var(--header_height);
+  display: flex;
+  width: 100%;
+  background: #edf0f3;
+}
+.login .container {
+  margin: 50px 0;
+}
+
+.form-login {
+  padding: 20px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 20px;
+}
+.form-login>h1, .form-login>p {
+  text-align: center;
+}
+.form-login>h1 {
+  font-weight: 200;
+}
+.form-login>p {
+  margin: 10px 0;
+}
+.form-login>p a {
+  color: #000;
+  text-decoration: none;
+}
+.form-login>p a:hover {
+  color: #fdcc7f;
+  text-decoration: underline;
+}
+.form-login input {
+  width: 550px;
+  height: 45px;
+  margin: 5px 0;
+  background: #edf0f3;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+}
+.form-login button {
+  margin-top: 10px;
+  height: 45px;
+  color: #fff;
+  background: #fdcc7f;
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+.user_active {
+  display: none;
+}
+.user_active.active {
+  display: block !important;
+  color: red;
+}
+.fa-user.active {
+  border-radius: 50% !important;
+  background: #000 !important;
+}

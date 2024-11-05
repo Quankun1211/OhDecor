@@ -1,77 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/grid.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <title>Document</title>
-</head>
-<body>
-  <div class="app">
-    <header class="header">
-      <div class="container">
-        <img class="logo" src="../img/logo.webp" alt="">
-        <ul class="list-navbar">
-          <li>
-            <a href="">Trang chủ</a>
-          </li>
-          <li>
-            <a href="">Về chúng tôi</a>
-          </li>
-          <li>
-            <a href="">Sản phẩm</a>
-            <i class="fa-solid fa-chevron-down"></i>
-            <ul class="list-child">
-              <li>a</li>
-              <li>a</li>
-              <li>a</li>
-            </ul>
-          </li>
-          <li>
-            <a href="">Blog</a>
-            <i class="fa-solid fa-chevron-down"></i>
-            <ul class="list-child">
-              <li>a</li>
-              <li>a</li>
-              <li>a</li>
-            </ul>
-          </li>
-          <li>
-            <a href="">Hệ thống</a>
-          </li>
-          <li>
-            <a href="">Dự án</a>
-            <i class="fa-solid fa-chevron-down"></i>
-            <ul class="list-child">
-              <li>a</li>
-              <li>a</li>
-              <li>a</li>
-            </ul>
-          </li>
-        </ul>
-        <div class="search-header">
-          <i class="fa-solid fa-magnifying-glass"></i>
-          <input type="text" placeholder="Tìm kiếm sản phẩm">
-        </div>
-        <div class="user-form">
-          <i class="fa-solid fa-user">
-            <ul class="list-user">
-              <li><a class="link-user" href="">đăng ký</a></li>
-              <li><a class="link-user" href="">đăng nhập</a></li>
-              <li><a class="link-user" href="">đăng xuất</a></li>
-            </ul>
-          </i>
-          <i class="fa-solid fa-shop"></i>
-        </div>
-      </img>
-    </header>
-    
-    <div class="content">
+<?php
+  include "../component/header.php";
+?>
+<div class="content">
+
       <div class="intro">
         <div class="container">
           <div class="intro-text">
@@ -317,43 +248,7 @@
         </div>
       </div>
     </div>
-    
-    <div class="footer">
-      <div class="container">
-        <div class="footer-list">
-          <div class="col">
-            <div class="title">THÔNG TIN LIÊN HỆ</div>
-            <p>Công ty cổ phần OH!Decor</p>
-            <p><i class="fa-solid fa-location-dot"></i> Tầng 6, Tòa Ladeco, 266 Đội Cấn, Quận Ba Đình, TP Hà Nội</p>
-            <p><i class="fa-solid fa-phone"></i> 1800.1009</p>
-            <p><i class="fa-solid fa-envelope"></i> humg@edu.vn</p>
-          </div>
-          <div class="col">
-            <div class="title">THÔNG TIN LIÊN HỆ</div>
-            <p>Công ty cổ phần OH!Decor</p>
-            <p><i class="fa-solid fa-location-dot"></i> Tầng 6, Tòa Ladeco, 266 Đội Cấn, Quận Ba Đình, TP Hà Nội</p>
-            <p><i class="fa-solid fa-phone"></i> 1800.1009</p>
-            <p><i class="fa-solid fa-envelope"></i> humg@edu.vn</p>
-          </div>
-          <div class="col">
-            <div class="title">THÔNG TIN LIÊN HỆ</div>
-            <p>Công ty cổ phần OH!Decor</p>
-            <p><i class="fa-solid fa-location-dot"></i> Tầng 6, Tòa Ladeco, 266 Đội Cấn, Quận Ba Đình, TP Hà Nội</p>
-            <p><i class="fa-solid fa-phone"></i> 1800.1009</p>
-            <p><i class="fa-solid fa-envelope"></i> humg@edu.vn</p>
-          </div>
-          <div class="col">
-            <div class="title">THÔNG TIN LIÊN HỆ</div>
-            <p>Công ty cổ phần OH!Decor</p>
-            <p><i class="fa-solid fa-location-dot"></i> Tầng 6, Tòa Ladeco, 266 Đội Cấn, Quận Ba Đình, TP Hà Nội</p>
-            <p><i class="fa-solid fa-phone"></i> 1800.1009</p>
-            <p><i class="fa-solid fa-envelope"></i> humg@edu.vn</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
+<?php
+  include "../component/footer.php";
+?>
   <script src="../js/index.js"></script>
-</body>
-</html>

@@ -31,7 +31,7 @@
     <div class="left-side">
       <div class="col">
         <div class="list-select">
-          <a href="adminCat.php" class="">Danh sách danh mục</a>
+          <a href="index.php" class="">Danh sách danh mục</a>
           <a href="adminBrand.php" class="">Danh sách nhãn sản phẩm</a>
           <a href="adminProd.php" class="">Danh sách sản phẩm</a>
         </div>

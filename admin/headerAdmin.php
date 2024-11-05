@@ -9,6 +9,7 @@
 </head>
 <body>
   <header>
-    <h1><a href="adminCat.php">AdminPage</a></h1>
-    <h1><a href="../html/index.html">MainPage</a></h1>
+    <h1><a href="index.php">AdminPage</a></h1>
+    <h1><a href="../content/main.php">MainPage</a></h1>
+    <p><a href="../content/logout.php" style="margin-left:20px;">Thoát</a></p>
   </header>

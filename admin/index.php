@@ -7,13 +7,16 @@
 ?>
 
 <?php
+  session_start();
+  ob_start();
+  if(isset($_SESSION['role']) && ($_SESSION['role'] == 1)) {
   include 'headerAdmin.php';
 ?>
   <div class="container">
     <div class="left-side">
       <div class="col">
         <div class="list-select">
-          <a href="adminCat.php" class="active">Danh sách danh mục</a>
+          <a href="index.php" class="active">Danh sách danh mục</a>
           <a href="adminBrand.php" class="">Danh sách nhãn sản phẩm</a>
           <a href="adminProd.php" class="">Danh sách sản phẩm</a>
         </div>
@@ -84,3 +87,8 @@
   
 </body>
 </html>
+<?php
+  } else {
+    header("Location:../content/login.php");
+  }
+?>

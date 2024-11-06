@@ -3,10 +3,10 @@
 ?>
 <?php
   $user = new User();
-  if(session_status() == PHP_SESSION_ACTIVE){
-    session_destroy();
-    session_start();
-  }
+  error_reporting(0);
+  if(!isset($_SESSION)) { 
+    session_start(); 
+  } 
   ob_start();
   $txt_err = false;
   if($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -20,7 +20,11 @@
       if($role == 1) {
         header("Location: ../admin/index.php");
       } else {
+        $_SESSION['user_id'] = $res['user_id'];
         $_SESSION['user_name'] = $user_name;
+        $_SESSION['first_name'] = $res['first_name'];
+        $_SESSION['last_name'] = $res['last_name'];
+        $_SESSION['email'] = $res['email'];
         header("Location: main.php");
       }
     } else {
@@ -43,7 +47,7 @@
         <input type="text" name="user_name" placeholder="Tên đăng nhập">
         <input type="text" name="password" placeholder="Mật khẩu">
         <p class="user_active <?php echo $txt_err ? "active" : ""; ?>">Tên đăng nhập hoặc mật khẩu sai !! Vui lòng nhập lại</p>
-        <button>Đăng ký</button>
+        <button>Đăng nhập</button>
       </form>
     </div>
   </div>

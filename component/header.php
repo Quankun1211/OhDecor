@@ -1,3 +1,8 @@
+<?php
+    if(!isset($_SESSION['user_name'])) {
+      session_start();
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,8 +65,6 @@
         </div>
         <div class="user-form">
             <?php
-              session_start();
-              ob_start();
               if(isset($_SESSION['user_name'])) {
             ?>
             <i class="fa-regular fa-face-smile">
@@ -76,7 +79,6 @@
               <ul class="list-user">
                 <li><a class="link-user" href="../content/register.php">đăng ký</a></li>
                 <li><a class="link-user" href="../content/login.php">đăng nhập</a></li>
-                <li><a class="link-user" href="">đăng xuất</a></li>
                 </ul>
             </i>
           <?php

@@ -24,5 +24,10 @@
     $res = $this->db->select($query);
     return $res;
   }
+  public function insert_user_payment($user_id ,$user_name ,$first_name ,$last_name ,$email) {
+    $query = "INSERT INTO ordered (user_id, user_name, first_name, last_name, email) VALUES ('$user_id','$user_name','$first_name','$last_name','$email')";
+    $res = $this->db->insert($query);
+    return $res;
+  }
  }
 ?>

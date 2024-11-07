@@ -24,9 +24,34 @@
     $res = $this->db->select($query);
     return $res;
   }
-  public function insert_user_payment($user_id ,$user_name ,$first_name ,$last_name ,$email) {
-    $query = "INSERT INTO ordered (user_id, user_name, first_name, last_name, email) VALUES ('$user_id','$user_name','$first_name','$last_name','$email')";
+  public function insert_user_payment($product_id, $product_name, $product_price, $user_id, $user_name, $name, $phone, $address, $note, $email) {
+    $query = "INSERT INTO ordered (product_id, product_name, product_price, user_id ,user_name ,name ,phone ,address ,note ,email) VALUES ('$product_id', '$product_name', '$product_price', '$user_id', '$user_name', '$name', '$phone', '$address', '$note', '$email')";
     $res = $this->db->insert($query);
+    return $res;
+  }
+  public function get_ordered() {
+    $query = "SELECT * FROM ordered";
+    $res = $this->db->select($query);
+    return $res;
+  }
+  public function get_product($product_id) {
+    $query = "SELECT * FROM tbl_product WHERE product_id = '$product_id'";
+    $res = $this->db->select($query);
+    return $res;
+  }
+  public function get_sum($user_id) {
+    $query = "SELECT count(user_id) as tong from ordered where user_id = '$user_id'";
+    $res = $this->db->select($query);
+    return $res;
+  }
+  public function get_order_one($order_id) {
+    $query = "SELECT * FROM ordered where order_id = '$order_id'";
+    $res = $this->db->select($query);
+    return $res;
+  }
+  public function delete_order($order_id) {
+    $query = "DELETE FROM ordered where order_id = '$order_id'";
+    $res = $this->db->delete($query);
     return $res;
   }
  }

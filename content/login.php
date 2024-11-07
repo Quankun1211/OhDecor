@@ -18,7 +18,7 @@
       $role = $res['role'];
       $_SESSION['role'] = $role;
       if($role == 1) {
-        header("Location: ../admin/index.php");
+        header("Location: ../admin/index.php?act=''");
       } else {
         $_SESSION['user_id'] = $res['user_id'];
         $_SESSION['user_name'] = $user_name;

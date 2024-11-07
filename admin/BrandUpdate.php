@@ -21,20 +21,9 @@
   include 'headerAdmin.php';
 ?>
 <div class="container">
-  <div class="left-side">
-    <div class="col">
-      <div class="list-select">
-        <a href="index.php" class="">Danh sách danh mục</a>
-        <a href="adminBrand.php" class="">Danh sách nhãn sản phẩm</a>
-        <a href="adminProd.php" class="">Danh sách sản phẩm</a>
-      </div>
-      <ul class="list-admin">
-        <li><a href="CategoryAdd.php">Thêm danh mục</a></li>
-        <li><a href="BrandAdd.php" >Thêm nhãn sản phẩm</a></li>
-        <li><a href="ProductAdd.php">Thêm sản phẩm</a></li>
-      </ul>
-    </div>
-  </div>
+<?php
+      include "../component/leftSideAdmin.php";
+    ?>
   <div class="right-side">
     <div class="col">
       <form action="" method="post">

@@ -763,7 +763,7 @@ scrollbar-width: none;
 }
 .total-r2 a:hover {
   text-decoration: underline;
-}
+}S
 .total-r2 button {
   width: 120px;
   height: 45px;
@@ -785,3 +785,4 @@ scrollbar-width: none;
 .login_cart.none {
   display: none;
 }
+

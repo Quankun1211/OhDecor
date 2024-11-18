@@ -90,7 +90,7 @@
           </div>
           <div class="total-r2">
             <a href="">Quay về giỏ hàng</a>
-            <button>Đặt hàng</button>
+            <button class="cart-btn">Đặt hàng</button>
           </div>
         </div>
       </div>

@@ -20,8 +20,8 @@
       $res = $this->db->select($query);
       return $res;
     }
-    public function insert_product($category_id, $brand_id, $product_name, $product_code, $product_price, $product_size, $product_type, $product_material, $product_color, $product_quantity) {
-      $query = "INSERT INTO tbl_product (category_id, brand_id, product_name, product_code, product_price, product_size, product_type, product_material, product_color, product_quantity) VALUES ('$category_id', '$brand_id', '$product_name', '$product_code', '$product_price', '$product_size', '$product_type', '$product_material', '$product_color', '$product_quantity')";
+    public function insert_product($category_id, $brand_id, $product_name, $product_code, $product_price, $product_size, $product_type, $product_material, $product_color, $product_quantity, $product_image) {
+      $query = "INSERT INTO tbl_product (category_id, brand_id, product_name, product_code, product_price, product_size, product_type, product_material, product_color, product_quantity, product_image) VALUES ('$category_id', '$brand_id', '$product_name', '$product_code', '$product_price', '$product_size', '$product_type', '$product_material', '$product_color', '$product_quantity', '$product_image')";
       $res = $this->db->insert($query);
       return $res;
     }

@@ -1,4 +1,8 @@
 <?php
+  include "../class/productClass.php";
+  $product = new Product();
+?>
+<?php
   include "../component/header.php";
 ?>
 <div class="content">
@@ -122,13 +126,39 @@
         <div class="container">
           <div class="collection-title">Bộ sưu tập</div>
           <ul class="collection-bar">
-            <li class="active">Hiện đại</li>
-            <li>Cổ điển</li>
-            <li>Đơn giản</li>
-            <li>Sang trọng</li>
+            <?php
+              $show_category = $product->show_category();
+              if($show_category) {
+                while($res = $show_category->fetch_assoc()) {
+            ?>
+            <li><?php echo $res['category_name'] ?></li>
+            <?php
+                }
+              }
+            ?>
           </ul>
           <div class="collection-list">
-            <div class="col">
+            <?php
+              $show_product = $product->show_product();
+              if($show_product) {
+                while($res = $show_product->fetch_assoc()) {
+            ?>
+              <div class="col">
+                <div class="collection-item">
+                  <div class="collection-item-img">
+                    <img src="../admin/uploads/<?php echo $res['product_image'] ?>" alt="">
+                  </div>
+                  <div class="collection-item-name"><?php echo $res['product_name'] ?></div>
+                  <div class="collection-item-price"><?php echo $res['product_price'] ?><span style="text-decoration: underline;">đ</span></div>
+                  <button class="collection-item-btn">Thêm vào giỏ</button>
+                </div>
+              </div>
+            <?php
+                }
+              }
+            ?>
+            
+            <!-- <div class="col">
               <div class="collection-item">
                 <div class="collection-item-img">
                   <img src="../img/collec1.webp" alt="">
@@ -157,17 +187,7 @@
                 <div class="collection-item-price">15.000.000 <span style="text-decoration: underline;">đ</span></div>
                 <button class="collection-item-btn">Thêm vào giỏ</button>
               </div>
-            </div>
-            <div class="col">
-              <div class="collection-item">
-                <div class="collection-item-img">
-                  <img src="../img/collec1.webp" alt="">
-                </div>
-                <div class="collection-item-name">Đèn người ôm bóng đèn</div>
-                <div class="collection-item-price">15.000.000 <span style="text-decoration: underline;">đ</span></div>
-                <button class="collection-item-btn">Thêm vào giỏ</button>
-              </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>

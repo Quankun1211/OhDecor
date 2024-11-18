@@ -14,8 +14,12 @@
     $product_material = $_POST['product_material'];
     $product_color = $_POST['product_color'];
     $product_quantity = $_POST['product_quantity'];
-
-    $insert_product = $product->insert_product($category_id, $brand_id, $product_name, $product_code, $product_price, $product_size, $product_type, $product_material, $product_color, $product_quantity);
+    $product_image = $_FILES["product_image"]["name"];
+    $tempname = $_FILES["product_image"]["tmp_name"];
+    $folder = "uploads/" . $product_image;
+    // move_uploaded_file($_FILES['product_image']['tmp_name'], "uploads/".$_FILES['product_image']['name']);
+    move_uploaded_file($tempname, $folder);
+    $insert_product = $product->insert_product($category_id, $brand_id, $product_name, $product_code, $product_price, $product_size, $product_type, $product_material, $product_color, $product_quantity, $product_image);
     header("Location:adminProd.php");
   }
 ?>
@@ -28,7 +32,7 @@
     ?>
     <div class="right-side">
       <div class="col">
-        <form action="" method="post">
+        <form action="" method="post" enctype="multipart/form-data">
           <div class="wrap-input">
             <span>Tên danh mục <span style="color: red;">*</span></span>
             <select name="category_id" id="category_id">
@@ -83,6 +87,10 @@
             <span>Số lượng sản phẩm <span style="color: red;">*</span></span>
             <input type="text" placeholder="Số lượng sản phẩm" name="product_quantity">
           </div>
+          <i class="wrap-input">
+            <span>Ảnh sản phẩm <span style="color: red;">*</span></span>
+            <input type="file" name="product_image" value="" />
+          </i>
           <button class="btn">Thêm</button>
         </form>
       </div>

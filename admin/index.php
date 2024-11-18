@@ -63,12 +63,14 @@
   </div>
 
   <script>
-    const deleteBtn = document.querySelector(".delete-btn")
+    const deleteBtn = document.querySelectorAll(".delete-btn")
     const dropDown = document.querySelector(".drop-down")
     const cancel = document.querySelector(".drop-down-btn-cancel")
-    deleteBtn.onclick = () => {
-      dropDown.classList.add("active")
-    }
+    deleteBtn.forEach(item => {
+        item.onclick = () => {
+        dropDown.classList.add("active")
+      }
+    })
     cancel.onclick = () => {
       dropDown.classList.remove("active")
     }

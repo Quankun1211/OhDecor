@@ -129,7 +129,7 @@ table {
 }
 .drop-down {
   position: absolute;
-  top: 0;
+  top: 80px;
   left: 0;
   bottom: 0;
   right: 0;
@@ -195,4 +195,9 @@ table {
 }
 .order-link{
   color: #000;
+  text-align: center;
+}
+.order-link:first-child {
+  padding-right: 5px;
+  border-right: 1px solid #000;
 }

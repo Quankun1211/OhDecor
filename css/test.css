@@ -764,7 +764,7 @@ scrollbar-width: none;
 .total-r2 a:hover {
   text-decoration: underline;
 }S
-.total-r2 button {
+.cart-btn {
   width: 120px;
   height: 45px;
   background: #f4aa34;

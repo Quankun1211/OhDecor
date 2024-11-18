@@ -744,9 +744,45 @@ scrollbar-width: none;
   margin: 10px 0;
 }
 
+.total {
+  padding: 10px;
+}
 .total-r1 {
   display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
 }
 .total-r2 {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
+.total-r2 a{
+  color: rgb(45, 119, 255);
+  text-decoration: none;
+}
+.total-r2 a:hover {
+  text-decoration: underline;
+}S
+.cart-btn {
+  width: 120px;
+  height: 45px;
+  background: #f4aa34;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+}
+.wrap_info{
+  display: flex;
+  justify-content: space-between;
+}
+.login_cart {
+  color: rgb(45, 119, 255);
+  text-decoration: none;
+  display: block;
+}
+.login_cart.none {
+  display: none;
+}
+

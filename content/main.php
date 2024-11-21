@@ -1,77 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/grid.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <title>Document</title>
-</head>
-<body>
-  <div class="app">
-    <header class="header">
-      <div class="container">
-        <img class="logo" src="../img/logo.webp" alt="">
-        <ul class="list-navbar">
-          <li>
-            <a href="">Trang chủ</a>
-          </li>
-          <li>
-            <a href="">Về chúng tôi</a>
-          </li>
-          <li>
-            <a href="">Sản phẩm</a>
-            <i class="fa-solid fa-chevron-down"></i>
-            <ul class="list-child">
-              <li>a</li>
-              <li>a</li>
-              <li>a</li>
-            </ul>
-          </li>
-          <li>
-            <a href="">Blog</a>
-            <i class="fa-solid fa-chevron-down"></i>
-            <ul class="list-child">
-              <li>a</li>
-              <li>a</li>
-              <li>a</li>
-            </ul>
-          </li>
-          <li>
-            <a href="">Hệ thống</a>
-          </li>
-          <li>
-            <a href="">Dự án</a>
-            <i class="fa-solid fa-chevron-down"></i>
-            <ul class="list-child">
-              <li>a</li>
-              <li>a</li>
-              <li>a</li>
-            </ul>
-          </li>
-        </ul>
-        <div class="search-header">
-          <i class="fa-solid fa-magnifying-glass"></i>
-          <input type="text" placeholder="Tìm kiếm sản phẩm">
-        </div>
-        <div class="user-form">
-          <i class="fa-solid fa-user">
-            <ul class="list-user">
-              <li><a class="link-user" href="">đăng ký</a></li>
-              <li><a class="link-user" href="">đăng nhập</a></li>
-              <li><a class="link-user" href="">đăng xuất</a></li>
-            </ul>
-          </i>
-          <i class="fa-solid fa-shop"></i>
-        </div>
-      </img>
-    </header>
-    
-    <div class="content">
+<?php
+  include "../class/productClass.php";
+  $product = new Product();
+?>
+<?php
+  include "../component/header.php";
+?>
+<div class="content">
+
       <div class="intro">
         <div class="container">
           <div class="intro-text">
@@ -191,13 +126,39 @@
         <div class="container">
           <div class="collection-title">Bộ sưu tập</div>
           <ul class="collection-bar">
-            <li class="active">Hiện đại</li>
-            <li>Cổ điển</li>
-            <li>Đơn giản</li>
-            <li>Sang trọng</li>
+            <?php
+              $show_category = $product->show_category();
+              if($show_category) {
+                while($res = $show_category->fetch_assoc()) {
+            ?>
+            <li><?php echo $res['category_name'] ?></li>
+            <?php
+                }
+              }
+            ?>
           </ul>
           <div class="collection-list">
-            <div class="col">
+            <?php
+              $show_product = $product->show_product();
+              if($show_product) {
+                while($res = $show_product->fetch_assoc()) {
+            ?>
+              <div class="col">
+                <div class="collection-item">
+                  <div class="collection-item-img">
+                    <img src="../admin/uploads/<?php echo $res['product_image'] ?>" alt="">
+                  </div>
+                  <div class="collection-item-name"><?php echo $res['product_name'] ?></div>
+                  <div class="collection-item-price"><?php echo $res['product_price'] ?><span style="text-decoration: underline;">đ</span></div>
+                  <button class="collection-item-btn">Thêm vào giỏ</button>
+                </div>
+              </div>
+            <?php
+                }
+              }
+            ?>
+            
+            <!-- <div class="col">
               <div class="collection-item">
                 <div class="collection-item-img">
                   <img src="../img/collec1.webp" alt="">
@@ -226,17 +187,7 @@
                 <div class="collection-item-price">15.000.000 <span style="text-decoration: underline;">đ</span></div>
                 <button class="collection-item-btn">Thêm vào giỏ</button>
               </div>
-            </div>
-            <div class="col">
-              <div class="collection-item">
-                <div class="collection-item-img">
-                  <img src="../img/collec1.webp" alt="">
-                </div>
-                <div class="collection-item-name">Đèn người ôm bóng đèn</div>
-                <div class="collection-item-price">15.000.000 <span style="text-decoration: underline;">đ</span></div>
-                <button class="collection-item-btn">Thêm vào giỏ</button>
-              </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -317,43 +268,7 @@
         </div>
       </div>
     </div>
-    
-    <div class="footer">
-      <div class="container">
-        <div class="footer-list">
-          <div class="col">
-            <div class="title">THÔNG TIN LIÊN HỆ</div>
-            <p>Công ty cổ phần OH!Decor</p>
-            <p><i class="fa-solid fa-location-dot"></i> Tầng 6, Tòa Ladeco, 266 Đội Cấn, Quận Ba Đình, TP Hà Nội</p>
-            <p><i class="fa-solid fa-phone"></i> 1800.1009</p>
-            <p><i class="fa-solid fa-envelope"></i> humg@edu.vn</p>
-          </div>
-          <div class="col">
-            <div class="title">THÔNG TIN LIÊN HỆ</div>
-            <p>Công ty cổ phần OH!Decor</p>
-            <p><i class="fa-solid fa-location-dot"></i> Tầng 6, Tòa Ladeco, 266 Đội Cấn, Quận Ba Đình, TP Hà Nội</p>
-            <p><i class="fa-solid fa-phone"></i> 1800.1009</p>
-            <p><i class="fa-solid fa-envelope"></i> humg@edu.vn</p>
-          </div>
-          <div class="col">
-            <div class="title">THÔNG TIN LIÊN HỆ</div>
-            <p>Công ty cổ phần OH!Decor</p>
-            <p><i class="fa-solid fa-location-dot"></i> Tầng 6, Tòa Ladeco, 266 Đội Cấn, Quận Ba Đình, TP Hà Nội</p>
-            <p><i class="fa-solid fa-phone"></i> 1800.1009</p>
-            <p><i class="fa-solid fa-envelope"></i> humg@edu.vn</p>
-          </div>
-          <div class="col">
-            <div class="title">THÔNG TIN LIÊN HỆ</div>
-            <p>Công ty cổ phần OH!Decor</p>
-            <p><i class="fa-solid fa-location-dot"></i> Tầng 6, Tòa Ladeco, 266 Đội Cấn, Quận Ba Đình, TP Hà Nội</p>
-            <p><i class="fa-solid fa-phone"></i> 1800.1009</p>
-            <p><i class="fa-solid fa-envelope"></i> humg@edu.vn</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
+<?php
+  include "../component/footer.php";
+?>
   <script src="../js/index.js"></script>
-</body>
-</html>

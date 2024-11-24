@@ -44,10 +44,12 @@
       <form action="" class="form-login" method="post">
         <h1>Đăng nhập</h1>
         <p>Chưa có tài khoản, đăng ký <a href="register.php">tại đây</a></p>
-        <input type="text" name="user_name" placeholder="Tên đăng nhập">
-        <input type="text" name="password" placeholder="Mật khẩu">
+        <input class="input" type="text" name="user_name" placeholder="Tên đăng nhập">
+        <span class="check">Vui lòng nhập đúng và đầy đủ thông tin</span>
+        <input class="input" type="password" name="password" placeholder="Mật khẩu">
+        <span class="check">Vui lòng nhập đúng và đầy đủ thông tin</span>
         <p class="user_active <?php echo $txt_err ? "active" : ""; ?>">Tên đăng nhập hoặc mật khẩu sai !! Vui lòng nhập lại</p>
-        <button>Đăng nhập</button>
+        <button class="submit">Đăng nhập</button>
       </form>
     </div>
   </div>
@@ -55,3 +57,5 @@
 <?php
   include "../component/footer.php";
 ?>
+
+<script src="../js/checkForm.js"></script>

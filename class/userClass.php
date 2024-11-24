@@ -1,5 +1,5 @@
 <?php
- include "../configDb/database.php";
+ require_once '../configDb/database.php';
 
  class User {
   private $db;

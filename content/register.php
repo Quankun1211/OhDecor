@@ -31,14 +31,20 @@
       <form action="" class="form-login" method="post">
         <h1>Đăng ký</h1>
         <p>Đã có tài khoản, đăng nhập <a href="login.php">tại đây</a></p>
-        <input type="text" name="first_name" placeholder="Họ">
-        <input type="text" name="last_name" placeholder="Tên">
-        <input type="text" name="email" placeholder="Email">
-        <input type="text" name="phone" placeholder="Số điện thoại">
-        <input type="text" name="user_name" placeholder="Tên đăng nhập">
-        <input type="text" name="password" placeholder="Mật khẩu">
+        <input class="input" type="text" name="first_name" placeholder="Họ">
+        <span class="check">Vui lòng nhập đúng và đầy đủ thông tin</span>
+        <input class="input" type="text" name="last_name" placeholder="Tên">
+        <span class="check">Vui lòng nhập đúng và đầy đủ thông tin</span>
+        <input class="input" type="text" name="email" placeholder="Email">
+        <span class="check">Vui lòng nhập đúng và đầy đủ thông tin</span>
+        <input class="input" type="text" name="phone" placeholder="Số điện thoại">
+        <span class="check">Vui lòng nhập đúng và đầy đủ thông tin</span>
+        <input class="input" type="text" name="user_name" placeholder="Tên đăng nhập">
+        <span class="check">Vui lòng nhập đúng và đầy đủ thông tin</span>
+        <input class="input" type="password" name="password" placeholder="Mật khẩu">
+        <span class="check">Vui lòng nhập đúng và đầy đủ thông tin</span>
         <p class="user_active <?php echo $checkUser ? "active" : ""; ?>">Người dùng đã tồn tại ! Vui lòng chọn tên đăng nhập khác</p>
-        <button>Đăng ký</button>
+        <button class="submit">Đăng ký</button>
       </form>
     </div>
   </div>
@@ -46,3 +52,5 @@
 <?php
   include "../component/footer.php";
 ?>
+
+<script src="../js/checkForm.js"></script>

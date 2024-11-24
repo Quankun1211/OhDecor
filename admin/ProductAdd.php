@@ -17,9 +17,11 @@
     $product_image = $_FILES["product_image"]["name"];
     $tempname = $_FILES["product_image"]["tmp_name"];
     $folder = "uploads/" . $product_image;
+    $product_description = $_POST['description'];
+
     // move_uploaded_file($_FILES['product_image']['tmp_name'], "uploads/".$_FILES['product_image']['name']);
     move_uploaded_file($tempname, $folder);
-    $insert_product = $product->insert_product($category_id, $brand_id, $product_name, $product_code, $product_price, $product_size, $product_type, $product_material, $product_color, $product_quantity, $product_image);
+    $insert_product = $product->insert_product($category_id, $brand_id, $product_name, $product_code, $product_price, $product_size, $product_type, $product_material, $product_color, $product_quantity, $product_image, $product_description);
     header("Location:adminProd.php");
   }
 ?>

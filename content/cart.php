@@ -46,10 +46,14 @@
           <p>Thông tin mua hàng</p>
           <a href="" class="login_cart <?php echo $checkUserLogin ?>">Đăng nhập</a>
         </div>
-        <input type="text" placeholder="Email" name="email">
-        <input type="text" placeholder="Họ và tên" name="name">
-        <input type="text" placeholder="Số điện thoại" name="phone">
-        <input type="text" placeholder="Địa chỉ" name="address">
+        <input class="input" type="text" placeholder="Email" name="email">
+        <span class="check">Vui lòng nhập đúng và đầy đủ thông tin</span>
+        <input class="input" type="text" placeholder="Họ và tên" name="name">
+        <span class="check">Vui lòng nhập đúng và đầy đủ thông tin</span>
+        <input class="input" type="text" placeholder="Số điện thoại" name="phone">
+        <span class="check">Vui lòng nhập đúng và đầy đủ thông tin</span>
+        <input class="input" type="text" placeholder="Địa chỉ" name="address">
+        <span class="check">Vui lòng nhập đúng và đầy đủ thông tin</span>
         <textarea name="note" id="" placeholder="Ghi chú (tùy chọn)"></textarea>
       </div>
     </div>
@@ -90,10 +94,18 @@
           </div>
           <div class="total-r2">
             <a href="">Quay về giỏ hàng</a>
-            <button class="cart-btn">Đặt hàng</button>
+            <button class="cart-btn submit" style="width: 120px;
+                                            height: 45px;
+                                            background: #f4aa34;
+                                            border: none;
+                                            border-radius: 10px;
+                                            color: #fff;
+                                            font-size: 16px;">Đặt hàng</button>
           </div>
         </div>
       </div>
     </div>
   </form>
 </div>
+
+<script src="../js/checkForm.js"></script>

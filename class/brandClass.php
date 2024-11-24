@@ -1,5 +1,5 @@
 <?php
-  include '../configDb/database.php';
+  require_once '../configDb/database.php';
   class Brand {
     private $db;
     public function __construct() {
@@ -52,6 +52,11 @@
     public function delete_prod($brand_id) {
       $query = "DELETE FROM tbl_product WHERE brand_id = '$brand_id'";
       $res = $this->db->delete($query);
+      return $res;
+    }
+    public function get_category_brand($category_id) {
+      $query = "SELECT * FROM tbl_brand WHERE category_id = '$category_id'";
+      $res = $this->db->select($query);
       return $res;
     }
   }

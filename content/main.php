@@ -109,16 +109,6 @@
                 <img src="../img/cate_1.webp" alt="">
               </div>
             </div>
-            <div class="prod-item">
-              <div class="prod-item-left">
-                <h1>sofa</h1>
-                <p>Ghế sofa vải và ghế dài</p>
-                <span>Xem thêm <i class="fa-solid fa-arrow-right"></i></span>
-              </div>
-              <div class="prod-item-right">
-                <img src="../img/cate_1.webp" alt="">
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -145,49 +135,20 @@
             ?>
               <div class="col">
                 <div class="collection-item">
-                  <div class="collection-item-img">
-                    <img src="../admin/uploads/<?php echo $res['product_image'] ?>" alt="">
-                  </div>
-                  <div class="collection-item-name"><?php echo $res['product_name'] ?></div>
-                  <div class="collection-item-price"><?php echo $res['product_price'] ?><span style="text-decoration: underline;">đ</span></div>
-                  <button class="collection-item-btn">Thêm vào giỏ</button>
+                  <a href="productDetail.php?product_id=<?php echo $res['product_id']; ?>">
+                    <div class="collection-item-img">
+                      <img src="../admin/uploads/<?php echo $res['product_image'] ?>" alt="">
+                    </div>
+                    <div class="collection-item-name"><?php echo $res['product_name'] ?></div>
+                    <div class="collection-item-price"><?php echo $res['product_price'] ?><span style="text-decoration: underline;">đ</span></div>
+                  </a>
+                  <button class="collection-item-btn"><a href="cart.php?product_id=<?php echo $res['product_id'] ?>">Mua ngay</a></button>
                 </div>
               </div>
             <?php
                 }
               }
             ?>
-            
-            <!-- <div class="col">
-              <div class="collection-item">
-                <div class="collection-item-img">
-                  <img src="../img/collec1.webp" alt="">
-                </div>
-                <div class="collection-item-name">Đèn người ôm bóng đèn</div>
-                <div class="collection-item-price">15.000.000 <span style="text-decoration: underline;">đ</span></div>
-                <button class="collection-item-btn">Thêm vào giỏ</button>
-              </div>
-            </div>
-            <div class="col">
-              <div class="collection-item">
-                <div class="collection-item-img">
-                  <img src="../img/collec1.webp" alt="">
-                </div>
-                <div class="collection-item-name">Đèn người ôm bóng đèn</div>
-                <div class="collection-item-price">15.000.000 <span style="text-decoration: underline;">đ</span></div>
-                <button class="collection-item-btn">Thêm vào giỏ</button>
-              </div>
-            </div>
-            <div class="col">
-              <div class="collection-item">
-                <div class="collection-item-img">
-                  <img src="../img/collec1.webp" alt="">
-                </div>
-                <div class="collection-item-name">Đèn người ôm bóng đèn</div>
-                <div class="collection-item-price">15.000.000 <span style="text-decoration: underline;">đ</span></div>
-                <button class="collection-item-btn">Thêm vào giỏ</button>
-              </div>
-            </div> -->
           </div>
         </div>
       </div>

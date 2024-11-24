@@ -122,11 +122,10 @@ html, body {
 }
 .list-child {
   top: 100%;
-  left: auto;
+  left: -150%;
   background: #fff;
   color: #000;
   position: absolute;
-  width: 200px;
   list-style: none;
   padding: 10px;
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.5);
@@ -138,6 +137,22 @@ html, body {
   width: 100%;
   cursor: pointer;
 }
+.list-child {
+  text-transform: capitalize;
+}
+.category-list{
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 10px;
+  white-space: nowrap;
+}
+.list-child li {
+  margin: 0 10px;
+}
+.list-child li p {
+  margin: 5px 0;
+  white-space: nowrap;
+}
 .link-user {
   text-transform: uppercase;
   font-family: Nunito, sans-serif !important;
@@ -146,11 +161,11 @@ html, body {
 .link-user:hover, .list-user li:hover .link-user{
   color: var(--text_color);
 }
-.list-child li:hover, .list-user li:hover {
+.list-child li p:hover, .list-user li p:hover {
   color: var(--text_color);
 }
 .list-navbar>li:hover .list-child {
-  display: block;
+  display: flex;
   transform: translateY(0);
 }
 .user-form>i:first-child {
@@ -420,6 +435,9 @@ scrollbar-width: none;
   border-radius: 20px;
   cursor: pointer;
 }
+.collection-item>a {
+  color: #000 !important;
+}
 .collection-item-img {
   overflow: hidden;
 }
@@ -436,10 +454,19 @@ scrollbar-width: none;
   float: left;
   margin: 5px 0;
 }
+.collection-item-btn a {
+  color: #000;
+  text-decoration: none;
+}
+.collection-item-btn:hover a {
+  color: #fff;
+}
 .collection-item-name {
   font-size: 16px;
   font-weight: 600;
   text-transform: uppercase;
+  display: block;
+  width: 100%;
 }
 .collection-item-price {
   font-size: 20px;
@@ -786,3 +813,16 @@ scrollbar-width: none;
   display: none;
 }
 
+.check {
+  margin-left: 10px;
+  color: red;
+  font-size: 14px;
+  margin-bottom: 5px;
+  display: none;
+}
+.check.active {
+  display: block;
+}
+/* .list-child-cat{
+  display: flex;
+} */

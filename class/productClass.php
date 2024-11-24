@@ -1,5 +1,5 @@
 <?php
-  include '../configDb/database.php';
+  require_once '../configDb/database.php';
   class Product {
     private $db;
     public function __construct() {
@@ -20,8 +20,8 @@
       $res = $this->db->select($query);
       return $res;
     }
-    public function insert_product($category_id, $brand_id, $product_name, $product_code, $product_price, $product_size, $product_type, $product_material, $product_color, $product_quantity, $product_image) {
-      $query = "INSERT INTO tbl_product (category_id, brand_id, product_name, product_code, product_price, product_size, product_type, product_material, product_color, product_quantity, product_image) VALUES ('$category_id', '$brand_id', '$product_name', '$product_code', '$product_price', '$product_size', '$product_type', '$product_material', '$product_color', '$product_quantity', '$product_image')";
+    public function insert_product($category_id, $brand_id, $product_name, $product_code, $product_price, $product_size, $product_type, $product_material, $product_color, $product_quantity, $product_image, $product_description) {
+      $query = "INSERT INTO tbl_product (category_id, brand_id, product_name, product_code, product_price, product_size, product_type, product_material, product_color, product_quantity, product_image, product_description) VALUES ('$category_id', '$brand_id', '$product_name', '$product_code', '$product_price', '$product_size', '$product_type', '$product_material', '$product_color', '$product_quantity', '$product_image', '$product_description')";
       $res = $this->db->insert($query);
       return $res;
     }
@@ -50,13 +50,18 @@
       $res = $this->db->select($query);
       return $res;
     }
+    public function get_product_favourite() {
+      $query = "SELECT * FROM tbl_product p join ordered o WHERE p.product_id = o.product_id";
+      $res = $this->db->select($query);
+      return $res;
+    }
 
 
 
-    public function update_product($product_id, $category_id, $brand_id, $product_name, $product_code, $product_price, $product_size, $product_type, $product_material, $product_color, $product_quantity) {
+    public function update_product($product_id, $category_id, $brand_id, $product_name, $product_code, $product_price, $product_size, $product_type, $product_material, $product_color, $product_quantity, $product_description) {
       $query = "
         UPDATE tbl_product
-        SET category_id = '$category_id', brand_id = '$brand_id', product_name = '$product_name', product_code = '$product_code', product_price = '$product_price', product_size = '$product_size', product_type = '$product_type', product_material = '$product_material', product_color = '$product_color', product_quantity = '$product_quantity'
+        SET category_id = '$category_id', brand_id = '$brand_id', product_name = '$product_name', product_code = '$product_code', product_price = '$product_price', product_size = '$product_size', product_type = '$product_type', product_material = '$product_material', product_color = '$product_color', product_quantity = '$product_quantity', product_description = '$product_description'
         WHERE product_id = '$product_id'
         ";
       $res = $this->db->update($query);

@@ -15,9 +15,10 @@
     $product_material = $_POST['product_material'];
     $product_color = $_POST['product_color'];
     $product_quantity = $_POST['product_quantity'];
+    $product_description = $_POST['description'];
 
-    $update_product = $product->update_product( $product_id, $category_id, $brand_id, $product_name, $product_code, $product_price, $product_size, $product_type, $product_material, $product_color, $product_quantity);
-    header("Location:admin.php");
+    $update_product = $product->update_product( $product_id, $category_id, $brand_id, $product_name, $product_code, $product_price, $product_size, $product_type, $product_material, $product_color, $product_quantity, $product_description);
+    header("Location:index.php");
   }
   $get_product = $product->get_product($product_id);
   $res = $get_product->fetch_assoc();
@@ -100,6 +101,10 @@
           <div class="wrap-input">
             <span>Số lượng sản phẩm <span style="color: red;">*</span></span>
             <input type="text" placeholder="Số lượng sản phẩm" name="product_quantity" value="<?php echo $res['product_quantity']; ?>">
+          </div>
+          <div class="wrap-input">
+            <span>Mô tả sản phẩm <span style="color: red;">*</span></span>
+            <textarea style="padding: 10px;" name="description" id=""><?php echo $res['product_description']; ?></textarea>
           </div>
           <button class="btn">Sửa</button>
         </form>

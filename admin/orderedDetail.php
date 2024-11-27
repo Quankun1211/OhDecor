@@ -26,6 +26,7 @@
           <th>Số điện thoại</th>
           <th>Địa chỉ</th>
           <th>Email</th>
+          <th>Tổng thành tiền</th>
           <th>Ghi chú</th>
           <th>Số lần đã đặt hàng</th>
         </tr>
@@ -37,6 +38,7 @@
           <th><?php echo $res_detail['phone']; ?></th>
           <th><?php echo $res_detail['address']; ?></th>
           <th><?php echo $res_detail['email']; ?></th>
+          <th><?php echo $res_detail['total_payment']; ?></th>
           <th width="20%"><?php echo $res_detail['note']; ?></th>
           <th><?php echo $res['tong'] ?></th>
         </tr>

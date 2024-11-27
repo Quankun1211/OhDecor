@@ -7,7 +7,7 @@
     $brand_name = $_POST['brand_name'];
     $category_id = $_POST['category_id'];
     $insert_brand = $brand->insert_brand($brand_name, $category_id);
-    header("Location:adminBrand.php");
+    header("Location:BrandAdd.php?act=addBrand");
   }
 
 ?>

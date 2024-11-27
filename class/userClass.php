@@ -24,8 +24,8 @@
     $res = $this->db->select($query);
     return $res;
   }
-  public function insert_user_payment($product_id, $product_name, $product_price, $user_id, $user_name, $name, $phone, $address, $note, $email) {
-    $query = "INSERT INTO ordered (product_id, product_name, product_price, user_id ,user_name ,name ,phone ,address ,note ,email) VALUES ('$product_id', '$product_name', '$product_price', '$user_id', '$user_name', '$name', '$phone', '$address', '$note', '$email')";
+  public function insert_user_payment($product_id, $product_name, $product_price, $user_id, $user_name, $name, $phone, $address, $note, $email, $payment) {
+    $query = "INSERT INTO ordered (product_id, product_name, product_price, user_id ,user_name ,name ,phone ,address ,note ,email, total_payment) VALUES ('$product_id', '$product_name', '$product_price', '$user_id', '$user_name', '$name', '$phone', '$address', '$note', '$email', '$payment')";
     $res = $this->db->insert($query);
     return $res;
   }
@@ -52,6 +52,11 @@
   public function delete_order($order_id) {
     $query = "DELETE FROM ordered where order_id = '$order_id'";
     $res = $this->db->delete($query);
+    return $res;
+  }
+  public function update_quantity($new_quantity) {
+    $query = "UPDATE tbl_product SET product_quantity = '$new_quantity'";
+    $res = $this->db->update($query);
     return $res;
   }
  }

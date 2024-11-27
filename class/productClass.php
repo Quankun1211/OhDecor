@@ -55,13 +55,37 @@
       $res = $this->db->select($query);
       return $res;
     }
+    public function get_product_brand_id($brand_id) {
+      $query = "SELECT * FROM tbl_product WHERE brand_id = '$brand_id'";
+      $res = $this->db->select($query);
+      return $res;
+    }
+    public function get_product_category_id($category_id) {
+      $query = "SELECT * FROM tbl_product WHERE category_id = '$category_id'";
+      $res = $this->db->select($query);
+      return $res;
+    }
+    public function get_limit_2($brand_id) {
+      $query = "SELECT * FROM tbl_product WHERE brand_id = '$brand_id' LIMIT 2";
+      $res = $this->db->select($query);
+      return $res;
+    }
+    public function get_limit_4() {
+      $query = "SELECT * FROM tbl_product LIMIT 4";
+      $res = $this->db->select($query);
+      return $res;
+    }
+    public function get_distinct_brand() {
+      $query = "SELECT * FROM tbl_brand";
+      $res = $this->db->select($query);
+      return $res;
+    }
 
 
-
-    public function update_product($product_id, $category_id, $brand_id, $product_name, $product_code, $product_price, $product_size, $product_type, $product_material, $product_color, $product_quantity, $product_description) {
+    public function update_product($product_id, $category_id, $brand_id, $product_name, $product_code, $product_price, $product_size, $product_type, $product_material, $product_color, $product_quantity, $product_image, $product_description) {
       $query = "
         UPDATE tbl_product
-        SET category_id = '$category_id', brand_id = '$brand_id', product_name = '$product_name', product_code = '$product_code', product_price = '$product_price', product_size = '$product_size', product_type = '$product_type', product_material = '$product_material', product_color = '$product_color', product_quantity = '$product_quantity', product_description = '$product_description'
+        SET category_id = '$category_id', brand_id = '$brand_id', product_name = '$product_name', product_code = '$product_code', product_price = '$product_price', product_size = '$product_size', product_type = '$product_type', product_material = '$product_material', product_color = '$product_color', product_quantity = '$product_quantity' , product_image = '$product_image', product_description = '$product_description'
         WHERE product_id = '$product_id'
         ";
       $res = $this->db->update($query);

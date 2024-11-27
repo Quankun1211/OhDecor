@@ -30,8 +30,12 @@
       $phone = $_POST['phone'];
       $address = $_POST['address'];
       $note = $_POST['note'];
-      $email = $_SESSION['email'];
-      $insert_user_payment = $user->insert_user_payment($product_id, $product_name,$product_price, $user_id, $user_name, $name, $phone, $address, $note, $email);
+      $email = $_POST['email'];
+      $quantity = $_POST['quantity'];
+      $new_quantity = $res['product_quantity'] - $quantity;
+      $payment = $_POST['after_price'];
+      $update_quantity = $user->update_quantity($new_quantity);
+      $insert_user_payment = $user->insert_user_payment($product_id, $product_name,$product_price, $user_id, $user_name, $name, $phone, $address, $note, $email, $payment);
       header("location: main.php");
     }
   }
@@ -63,12 +67,7 @@
         <div class="require">Vui lòng nhập thông tin giao hàng</div>
         <p class="payment">Thanh toán</p>
         <div class="wrap-checkbox">
-          <input type="checkbox" id="check1">
-          <label for="check1">	Chuyển khoản</label>
-        </div>
-        <div class="wrap-checkbox">
-          <input type="checkbox" id="check2">
-          <label for="check2">Thu hộ (COD)</label>
+          <label for="check1">Thanh toán khi nhận hàng</label>
         </div>
       </div>
     </div>
@@ -76,24 +75,35 @@
       <div class="content_cart-right">
         <h1>Đơn hàng (1 sản phẩm)</h1>
         <div class="wrap-prod-info">
-          <img src="../img/slider_text_image.webp" alt="">
+          <img src="../admin/uploads/<?php echo $res['product_image'] ?>" alt="">
           <p class="wrap-prod-info-name"><?php echo $res['product_name'] ?></p>
           <p><?php echo $res['product_price']; ?>₫</p>
+        </div>
+        <h1 class="quantity-origin">
+            <strong class="quantity-strong">Còn lại:</strong>
+            <p class="quantity-left"><?php echo $res['product_quantity'] ?></p> 
+        </h1>
+        <div class="quantity">
+            <p class="quantity_title"><strong>Số lượng:</strong></p>
+            <div class="qty-btn">-</div>
+            <input type="text" class="quantity_num" value="1" name="quantity">
+            <div class="qty-btn">+</div>
         </div>
         <div class="wrap-ship">
           <div class="wrap-ship-r1">
             <p>Tạm tính</p>
-            <p class="wrap-ship-r1-price"><?php echo $res['product_price']; ?>₫</p>
+            <div class="total-price-div"><p class="total-r1-price"><?php echo $res['product_price']; ?></p>₫</div>
           </div>
           <div class="wrap-ship-payship">Phí vận chuyển</div>
         </div>
         <div class="total">
           <div class="total-r1">
             <p>Tổng cộng</p>
-            <p class="total-r1-price"><?php echo $res['product_price']; ?>₫</p>
+            <div class="total-price-div"><p class="total-r1-price price_quantity"><?php echo $res['product_price']; ?></p>₫</div>
           </div>
+          <input type="hidden" name="after_price" class="hiddenInput">
           <div class="total-r2">
-            <a href="">Quay về giỏ hàng</a>
+            <a href="productList.php">Quay về giỏ hàng</a>
             <button class="cart-btn submit" style="width: 120px;
                                             height: 45px;
                                             background: #f4aa34;
@@ -108,4 +118,4 @@
   </form>
 </div>
 
-<script src="../js/checkForm.js"></script>
+<script src="../js/checkFormInput.js"></script>

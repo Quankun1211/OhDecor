@@ -15,15 +15,19 @@
     $product_material = $_POST['product_material'];
     $product_color = $_POST['product_color'];
     $product_quantity = $_POST['product_quantity'];
-    $product_description = $_POST['description'];
+    $product_image = $_FILES["product_image"]["name"];
+    $tempname = $_FILES["product_image"]["tmp_name"];
+    $folder = "uploads/" . $product_image;
+    $product_description = $_POST['product_description'];
 
-    $update_product = $product->update_product( $product_id, $category_id, $brand_id, $product_name, $product_code, $product_price, $product_size, $product_type, $product_material, $product_color, $product_quantity, $product_description);
+    move_uploaded_file($tempname, $folder);
+    $update_product = $product->update_product( $product_id, $category_id, $brand_id, $product_name, $product_code, $product_price, $product_size, $product_type, $product_material, $product_color, $product_quantity, $product_image, $product_description);
     header("Location:index.php");
   }
   $get_product = $product->get_product($product_id);
   $res = $get_product->fetch_assoc();
   $category_id = $res['category_id'];
-  $brand_id = $res['brand_id'];
+  $brand_id_get = $res['brand_id'];
 ?>
 <?php
   include 'headerAdmin.php';
@@ -34,7 +38,7 @@
     ?>
     <div class="right-side">
     <div class="col">
-        <form action="" method="post">
+        <form action="" method="post" enctype="multipart/form-data">
           <div class="wrap-input">
             <span>Tên danh mục <span style="color: red;">*</span></span>
             <select name="category_id" id="category_id">
@@ -60,52 +64,54 @@
           <div class="wrap-input">
             <span>Tên nhãn sản phẩm <span style="color: red;">*</span></span>
             <select name="brand_id" id="brand_id">
-              <option value="">
-                  <?php
-                  $show_brand = $product->show_brand_id($brand_id);
-                  $res_brand = $show_brand->fetch_assoc();
-                  echo $res_brand['brand_name'];
-                  ?>
-              </option>
-                
+              <?php
+                $show_brand_id = $product->show_brand_id($brand_id_get);
+                $res_brand = $show_brand_id->fetch_assoc();
+              ?>
+              <option value="<?php echo $res_brand['brand_id'] ?>"><?php echo $res_brand['brand_name']; ?></option>
             </select>
           </div>
           <div class="wrap-input">
             <span>Tên sản phẩm <span style="color: red;">*</span></span>
-            <input type="text" placeholder="Nhập sản phẩm" name="product_name" value="<?php echo $res['product_name']; ?>">
+            <input type="text" placeholder="Nhập sản phẩm" name="product_name" value="<?php echo $res['product_name'] ?>">
           </div>
           <div class="wrap-input">
             <span>Mã sản phẩm <span style="color: red;">*</span></span>
-            <input type="text" placeholder="Mã sản phẩm" name="product_code" value="<?php echo $res['product_code']; ?>">
+            <input type="text" placeholder="Mã sản phẩm" name="product_code" value="<?php echo $res['product_code'] ?>">
           </div>
           <div class="wrap-input">
             <span>Giá sản phẩm <span style="color: red;">*</span></span>
-            <input type="text" placeholder="Giá sản phẩm" name="product_price" value="<?php echo $res['product_price']; ?>">
+            <input type="text" placeholder="Giá sản phẩm" name="product_price" value="<?php echo $res['product_price'] ?>">
           </div>
           <div class="wrap-input">
             <span>Kích thước sản phẩm <span style="color: red;">*</span></span>
-            <input type="text" placeholder="Kích thước sản phẩm" name="product_size" value="<?php echo $res['product_size']; ?>">
+            <input type="text" placeholder="Kích thước sản phẩm" name="product_size" value="<?php echo $res['product_size'] ?>">
           </div>
           <div class="wrap-input">
             <span>Quy cách sản phẩm <span style="color: red;">*</span></span>
-            <input type="text" placeholder="Quy cách sản phẩm" name="product_type" value="<?php echo $res['product_type']; ?>">
+            <input type="text" placeholder="Quy cách sản phẩm" name="product_type" value="<?php echo $res['product_type'] ?>">
           </div>
           <div class="wrap-input">
             <span>Chất liệu sản phẩm <span style="color: red;">*</span></span>
-            <input type="text" placeholder="Chất liệu sản phẩm" name="product_material" value="<?php echo $res['product_material']; ?>">
+            <input type="text" placeholder="Chất liệu sản phẩm" name="product_material" value="<?php echo $res['product_material'] ?>">
           </div>
           <div class="wrap-input">
             <span>Màu sắc sản phẩm <span style="color: red;">*</span></span>
-            <input type="text" placeholder="Màu sắc sản phẩm" name="product_color" value="<?php echo $res['product_color']; ?>">
+            <input type="text" placeholder="Màu sắc sản phẩm" name="product_color" value="<?php echo $res['product_color'] ?>">
           </div>
           <div class="wrap-input">
             <span>Số lượng sản phẩm <span style="color: red;">*</span></span>
-            <input type="text" placeholder="Số lượng sản phẩm" name="product_quantity" value="<?php echo $res['product_quantity']; ?>">
+            <input type="text" placeholder="Số lượng sản phẩm" name="product_quantity" value="<?php echo $res['product_quantity'] ?>">
           </div>
-          <div class="wrap-input">
+          <i class="wrap-input">
+            <span>Ảnh sản phẩm <span style="color: red;">*</span></span>
+            <img style="width:100px; height:100px;" src="uploads/<?php echo $res['product_image']; ?>" alt="">
+            <input type="file" name="product_image" value="<?php echo $res['product_image']; ?>"/>
+          </i>
+          <i class="wrap-input">
             <span>Mô tả sản phẩm <span style="color: red;">*</span></span>
-            <textarea style="padding: 10px;" name="description" id=""><?php echo $res['product_description']; ?></textarea>
-          </div>
+            <textarea style="padding:10px;" name="product_description" id=""><?php echo $res['product_description']; ?></textarea>
+          </i>
           <button class="btn">Sửa</button>
         </form>
       </div>

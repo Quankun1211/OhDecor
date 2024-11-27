@@ -58,4 +58,4 @@
   include "../component/footer.php";
 ?>
 
-<script src="../js/checkForm.js"></script>
+<script src="../js/checkFormInput.js"></script>

@@ -16,9 +16,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/test2.css">
-  <link rel="stylesheet" href="../css/productDetail1.css">
+  <link rel="stylesheet" href="../css/test.css">
+  <link rel="stylesheet" href="../css/productDetail.css">
   <link rel="stylesheet" href="../css/grid.css">
+  <link rel="stylesheet" href="../css/gridProductCss.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <title>Document</title>
 </head>
@@ -29,13 +30,13 @@
         <a href="../content/main.php"><img class="logo" src="../img/logo.webp" alt=""></a>
         <ul class="list-navbar">
           <li>
-            <a href="">Trang chủ</a>
+            <a href="../content/main.php">Trang chủ</a>
           </li>
           <li>
             <a href="">Về chúng tôi</a>
           </li>
           <li>
-            <a href="">Sản phẩm</a>
+            <a href="../content/productList.php">Sản phẩm</a>
             <i class="fa-solid fa-chevron-down"></i>
             <ul class="list-child">
               <?php
@@ -44,14 +45,14 @@
                     while($res = $show_category->fetch_assoc()) {
                 ?>
                   <li>
-                    <p class="category-list"><?php echo $res['category_name'] ?></p>
+                    <a href="../content/productListCat.php?category_id=<?php echo $res['category_id'] ?>" class="category-list"><?php echo $res['category_name'] ?></a>
                     <?php
                       $category_id = $res['category_id'];
                       $get_brand = $brand->get_category_brand($category_id);
                       if($get_brand) {
                         while($res_brand = $get_brand->fetch_assoc()) {
                     ?>
-                      <p><?php echo $res_brand['brand_name'] ?></p>
+                      <a href="../content/productListBrand.php?brand_id=<?php echo $res_brand['brand_id'] ?>"><?php echo $res_brand['brand_name'] ?></a>
                     <?php
                         }
                       }

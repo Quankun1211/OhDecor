@@ -149,9 +149,13 @@ html, body {
 .list-child li {
   margin: 0 10px;
 }
-.list-child li p {
+.list-child li p, .list-child li a {
   margin: 5px 0;
+  color: #000;
   white-space: nowrap;
+}
+.list-child li a {
+  padding: 0;
 }
 .link-user {
   text-transform: uppercase;
@@ -826,3 +830,50 @@ scrollbar-width: none;
 /* .list-child-cat{
   display: flex;
 } */
+
+
+
+.toolbar{
+  margin-top: 100px;
+  display: flex;
+  list-style: none;
+  height: 50px;
+  width: 100%;
+  align-items: center;
+}
+.toolbar li a{
+  text-decoration: none;
+  padding: 0 8px;
+  color: #000;
+}
+.content{
+  padding-left: var(--header_height);
+  padding-right: var(--header_height);
+}
+.intro-pr{
+  position: relative;
+  height: 200px;
+  width: 100%;
+  background-color: var(--bg_color);
+  border-radius: 20px;
+  text-align: left;
+}
+.intro-pr b{
+  font-size: 40px;
+  position: absolute;
+  top: 30%;
+  padding: 15px;
+}
+.intro-pr img{
+  width: 25%;
+  float: right;
+  margin-right: 20px;
+}
+.before-footer .container {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+.before-footer .container img {
+  width: 100%;
+  border-radius: 20px;
+}
